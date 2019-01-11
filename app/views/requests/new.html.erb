@@ -1,2 +1,52 @@
-<h1>Requests#new</h1>
-<p>Find me in app/views/requests/new.html.erb</p>
+<div class="flex-container">
+
+  <div class="flex-items">
+
+    <h1>Ajout à la liste d'attente</h1>
+
+    <div class="registration-box">
+      <div class="row">
+        <p class="alert"><%= alert %></p>
+        <%= simple_form_for @request do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+
+            <div class="form-group">
+              <%= f.input :name,
+                          required: true,
+                          autofocus: true ,
+                          input_html: { autocomplete: "name" }%>
+            </div>
+
+            <div class="form-group">
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true ,
+                          input_html: { autocomplete: "email" }%>
+            </div>
+
+            <div class="form-group">
+              <%= f.input :phone,
+                          required: true,
+                          autofocus: true ,
+                          input_html: { autocomplete: "phone" }%>
+            </div>
+
+            <div class="form-group">
+              <%= f.input :bio,
+                          required: true,
+                          autofocus: true ,
+                          input_html: { autocomplete: "bio" }%>
+            </div>
+          </div>
+
+          <div class="form-actions text-center" >
+            <%= f.button :submit, "S'inscrire", class: "btn-primary btn-pimp" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
