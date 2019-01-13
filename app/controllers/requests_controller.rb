@@ -11,10 +11,10 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save
-      puts "Pour confirmer votre inscription à la liste d'attente, merci de consulter votre boîte mail."
       redirect_to "/"
+      flash[:success] = "Pour confirmer votre inscription à la liste d'attente, merci de consulter votre boîte mail."
     else
-      puts "Erreur lors de l'enregistrement, merci de recommencer."
+      flash[:error] = "Erreur lors de l'enregistrement, merci de recommencer."
       render :new
     end
   end
