@@ -14,12 +14,15 @@ class RequestsController < ApplicationController
       redirect_to "/"
       flash[:success] = "Pour confirmer votre inscription à la liste d'attente, merci de consulter votre boîte mail."
     else
-      flash[:error] = "Erreur lors de l'enregistrement, merci de recommencer."
       render :new
+      flash[:error] = "Erreur lors de l'enregistrement, merci de recommencer."
     end
   end
 
   def edit
+  end
+
+  def update
   end
 
   private
