@@ -22,6 +22,6 @@ class Request < ApplicationRecord
   end
 
   def accept!
-    self.update(status: "confirmed")
+    self.update(status: "accepted")
   end
 end
