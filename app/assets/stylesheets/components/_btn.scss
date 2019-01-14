@@ -1,5 +1,5 @@
 .btn-grad {
-  background-image: linear-gradient(to right, #4568DC 0%, #B06AB3 51%, #4568DC 100%);
+  background-image: linear-gradient(to right, #f86f00 0%, #ff1e1e 51%, #f86f00 100%);
   // color: white;
   // border-radius: 30px;
   // box-shadow: none;
@@ -7,7 +7,7 @@
   // margin: 10px;
   // font-size: 16px;
   // transition: all .4s ease-in-out;
-  padding: 15px 20px;
+  padding: 15px 30px;
   font-size: 16px;
   font-weight: 600;
   color: #fff;
@@ -15,6 +15,7 @@
   margin: 20px;
   height: 55px;
   text-align:center;
+  text-decoration: none;
   border: none;
   background-size: 200% 100%;
   border-radius: 50px;
@@ -27,5 +28,6 @@
 .btn-grad:hover {
   background-position: 100% 0;
   color: white;
+  text-decoration: none;
   transition: all .4s ease-in-out;
 }
