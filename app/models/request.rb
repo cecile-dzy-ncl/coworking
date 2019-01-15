@@ -1,5 +1,4 @@
 class Request < ApplicationRecord
-
   validates :name, presence: true
   validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-zA-Z0-9.]{2,}\.[a-z]{2,4}\z/ }
   validates :phone, presence: true, format: { with: /\A(0|\+33)[1-9]\d{8}\z/ }
@@ -26,13 +25,11 @@ class Request < ApplicationRecord
     self.update(status: "accepted")
   end
 
-  def confirm_email!
+  def email_confirmed!
     self.update(status: "confirmed")
   end
 
-  private
-
   def confirmation_token
-    self.confirmation_token = SecureRandom.hex if self.confirmation_token.blank?
+    self.confirm_token = SecureRandom.hex if self.confirm_token.blank?
   end
 end
