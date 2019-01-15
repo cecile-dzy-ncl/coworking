@@ -7,7 +7,7 @@ Rails.application.configure do
     domain: 'gmail.com',
     user_name: ENV['GMAIL_ADDRESS'],
     password: ENV['GMAIL_APP_PASSWORD'],
-    authentication: :login,
+    authentication: :plain,
     enable_starttls_auto: true }
   config.action_mailer.default_url_options = { host: "https://wl-coworking.herokuapp.com" }
   # or your custom domain name eg. "www.yourdomain.com"
