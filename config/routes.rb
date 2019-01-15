@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :requests
+  resources :requests do
+    get 'confirm_email', on: :member
+  end
 
 end
 
@@ -37,3 +39,4 @@ end
 #                          PATCH  /requests/:id(.:format)               requests#update
 #                          PUT    /requests/:id(.:format)               requests#update
 #                          DELETE /requests/:id(.:format)               requests#destroy
+#    confirm_email_request GET    /requests/:id/confirm_email(.:format) requests#confirm_email

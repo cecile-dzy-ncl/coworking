@@ -25,4 +25,14 @@ class Request < ApplicationRecord
   def accept!
     self.update(status: "accepted")
   end
+
+  def confirm_email!
+    self.update(status: "confirmed")
+  end
+
+  private
+
+  def confirmation_token
+    self.confirmation_token = SecureRandom.hex if self.confirmation_token.blank?
+  end
 end

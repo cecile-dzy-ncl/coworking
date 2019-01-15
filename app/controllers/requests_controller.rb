@@ -11,9 +11,9 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save
-      flash[:success] = "Pour confirmer votre inscription à la liste d'attente, merci de consulter votre boîte mail."
       UserMailer.welcome(@request).deliver_now
       redirect_to root_path
+      flash[:success] = "Pour confirmer votre inscription à la liste d'attente, merci de consulter votre boîte mail."
     else
       render :new
       flash[:error] = "Erreur lors de l'enregistrement, merci de recommencer."
@@ -24,6 +24,18 @@ class RequestsController < ApplicationController
   end
 
   def update
+  end
+
+  def confirm_email
+    request = Request.find_by_confirm_token(params[:id])
+    if request
+      request.email_confirmed!
+      redirect_to root_path
+      flash[:success] = "Votre email est bien confirmé, vous êtes sur liste d'attente"
+    else
+      redirect_to root_path
+      flash[:error] = "Désolé, utilisateur non connu"
+    end
   end
 
   private
