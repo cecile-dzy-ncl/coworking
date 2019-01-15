@@ -1,4 +1,6 @@
 class Request < ApplicationRecord
+  before_create :confirmation_token
+
   validates :name, presence: true
   validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-zA-Z0-9.]{2,}\.[a-z]{2,4}\z/ }
   validates :phone, presence: true, format: { with: /\A(0|\+33)[1-9]\d{8}\z/ }
@@ -26,10 +28,17 @@ class Request < ApplicationRecord
   end
 
   def email_confirmed!
+    self.email_confirmed = true
+    self.confirm_token = nil
     self.update(status: "confirmed")
+    save!(validate: false)
   end
 
+  private
+
   def confirmation_token
-    self.confirm_token = SecureRandom.hex if self.confirm_token.blank?
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
   end
 end
