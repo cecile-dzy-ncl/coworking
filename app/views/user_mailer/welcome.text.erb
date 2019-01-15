@@ -2,7 +2,7 @@ Bonjour <%= @request.name %>,
 
 Nous avons bien reçu votre demande d'inscription sur notre liste d'attente !
 Afin de pouvoir enregistrer définitivement votre demande, merci de valider votre email en cliquant sur le lien suivant:
-lien
+<%= confirm_email_request_url(@request.confirm_token) %>
 
 Merci et à très vite!
 
