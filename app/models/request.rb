@@ -38,7 +38,7 @@ class Request < ApplicationRecord
     requests.each do |request|
       if ((Time.now - request.updated_at) / 3600 / 24) > 1
         UserMailer.confirmation(request).deliver_now
-        request.status == "expired"
+        request.status = "expired"
       end
     end
   end
