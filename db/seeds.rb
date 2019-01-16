@@ -19,7 +19,9 @@ sheldon = Request.new(
   email: "theoneandonly@sheldoncooper.com",
   phone: "0123456789",
   bio: "Well, come on, you know who I am! I am in Paris for a few months and I want to work in your coworking, have heard it is the best. I am sure I'll find THE spot, MY spot! Oh, and I am brigging friends!",
-  status: "accepted")
+  status: "accepted",
+  confirm_token: "",
+  email_confirmed: true)
 sheldon.save
 
 amy = Request.new(
@@ -27,7 +29,9 @@ amy = Request.new(
   email: "thewifey@sheldoncooper.com",
   phone: "0234567891",
   bio: "Hi there, I am Amy, Sheldon's wife! I will follow him wherever he goes, so here I am! So happy to be able to work in Paris, I hope I can have a spot in your coworking space soon so I can work on my neurobiology projects.",
-  status: "accepted")
+  status: "accepted",
+  confirm_token: "",
+  email_confirmed: true)
 amy.save
 
 leonard = Request.new(
@@ -35,7 +39,9 @@ leonard = Request.new(
   email: "luckyman@shesaidyesicantbelieveit.com",
   phone: "0345678912",
   bio: "Hello, Leonard here! I am the best friend! With Penny, my wife, we decided to tag along when Sheldon asked us to go to France for a few months.",
-  status: "confirmed")
+  status: "confirmed",
+  confirm_token: "",
+  email_confirmed: true)
 leonard.save
 
 penny = Request.new(
@@ -43,7 +49,9 @@ penny = Request.new(
   email: "penny@pennytheactress.com",
   phone: "0456789123",
   bio: "Hi there, I am Penny, the neighbourgh! I am so happy to come to Paris, I am going to go shopping so many times! Oh, and so days, I will be coming to the cowork, obviously to do my job... need to pay the shopping bills!",
-  status: "confirmed")
+  status: "confirmed",
+  confirm_token: "",
+  email_confirmed: true)
 penny.save
 
 bernadette = Request.new(
@@ -51,7 +59,9 @@ bernadette = Request.new(
   email: "bernadette@iamthebosshere.com",
   phone: "0567891234",
   bio: "Hi there, I am Bernadette, Howard's wife! Thrilled to come to Paris too, I'm sure I'm gonna love working from your cowork - and going shopping w/ Penny and Amy from time to time!",
-  status: "unconfirmed")
+  status: "unconfirmed",
+  confirm_token: "",
+  email_confirmed: false)
 bernadette.save
 
 howard = Request.new(
@@ -59,7 +69,9 @@ howard = Request.new(
   email: "mywifeistheboss@iamthebosshere.com",
   phone: "0678912345",
   bio: "Hey guys! I'm Howard! I'm an astronaut, went to space, yup! And I'm a magician too! Coming here w/ the gang and my wife Bernie. Did I mentioned I am an astronaut?",
-  status: "unconfirmed")
+  status: "unconfirmed",
+  confirm_token: "",
+  email_confirmed: false)
 howard.save
 
 raj = Request.new(
@@ -67,7 +79,9 @@ raj = Request.new(
   email: "hey@canttalktowomen.com",
   phone: "0789123456",
   bio: "Hello! Raj speaking here! I follow the group, hope there is still some space left in the cowork! Would love to work in Paris and discover the city of lights! Even if I'm more into stars and Planetarium!",
-  status: "expired")
+  status: "expired",
+  confirm_token: "",
+  email_confirmed: false)
 raj.save
 
 puts "---- Done! ----"
