@@ -1,12 +1,9 @@
-<div class="email">
-  <%= image_tag "logo-email.svg" %>
-  <p>Bonjour <%= @request.name %>,</p>
+<p>Bonjour <%= @request.name %>,</p>
 
-  <p>Nous avons bien reçu votre demande d'inscription sur notre liste d'attente !</p>
-  <p>Afin de pouvoir enregistrer définitivement votre demande, merci de valider votre email en cliquant sur le lien suivant:</p>
-  <%= confirm_email_request_url(@request.confirm_token) %>
+<p>Nous avons bien reçu votre demande d'inscription sur notre liste d'attente !</p>
+<p>Afin de pouvoir enregistrer définitivement votre demande, merci de valider votre email en cliquant sur le lien suivant:</p>
+<%= confirm_email_request_url(@request.confirm_token) %>
 
-  <p>Merci et à très vite!</p>
+<p>Merci et à très vite!</p>
 
-  <p>L'équipe du Coworking</p>
-</div>
+<p>L'équipe du Coworking</p>
