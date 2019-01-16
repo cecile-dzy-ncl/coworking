@@ -30,10 +30,22 @@ class RequestsController < ApplicationController
     request = Request.find_by_confirm_token(params[:id])
     if request
       request.email_confirmed!
-      flash[:success] = "Votre email est bien confirmé, vous êtes sur liste d'attente"
+      flash[:success] = "Votre email est bien confirmé, vous êtes sur liste d'attente."
       redirect_to root_path
     else
-      flash[:error] = "Désolé, utilisateur non connu"
+      flash[:error] = "Désolé, utilisateur non connu."
+      redirect_to root_path
+    end
+  end
+
+  def confirm_request
+    request = Request.find_by_confirm_token(params[:id])
+    if request
+      request.request_confirmed!
+      flash[:success] = "Votre demande est bien renouvellée."
+      redirect_to root_path
+    else
+      flash[:error] = "Désolé, utilisateur non connu."
       redirect_to root_path
     end
   end

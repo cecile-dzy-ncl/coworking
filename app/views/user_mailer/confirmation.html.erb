@@ -1,0 +1,9 @@
+<p>Bonjour <%= @request.name %>,</p>
+
+<p>Vous vous êtes inscrit-e sur notre liste d'attente il y a 3 mois.</p>
+<p>Êtes-vous toujours intéressée par une place chez nous ? Si oui, merci de cliquer sur le lien suivant :</p>
+<%= confirm_request_request_url(@request.confirm_token) %>
+
+<p>Merci et à très vite!</p>
+
+<p>L'équipe du Coworking</p>

@@ -7,4 +7,9 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.welcome(request)
   end
 
+  def confirmation
+    request = Request.last
+    UserMailer.confirmation(request)
+  end
+
 end

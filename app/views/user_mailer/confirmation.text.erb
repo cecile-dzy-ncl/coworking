@@ -1,0 +1,9 @@
+Bonjour <%= @request.name %>,
+
+Vous vous êtes inscrit-e sur notre liste d'attente il y a 3 mois.
+Êtes-vous toujours intéressée par une place chez nous ? Si oui, merci de cliquer sur le lien suivant :
+<%= confirm_request_request_url(@request.confirm_token) %>
+
+Merci et à très vite!
+
+L'équipe du Coworking

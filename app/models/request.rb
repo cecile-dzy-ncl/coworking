@@ -31,7 +31,21 @@ class Request < ApplicationRecord
     self.email_confirmed = true
     self.confirm_token = nil
     self.update(status: "confirmed")
-    save!(validate: false)
+  end
+
+  def self.renew
+    requests = Request.confirmed
+    requests.each do |request|
+      if ((Time.now - request.updated_at) / 3600 / 24) > 91
+        UserMailer.confirmation(request).deliver_now
+        request.status == "expired"
+      end
+    end
+  end
+
+  def request_confirmed!
+    self.confirm_token = nil
+    self.update(status: "confirmed")
   end
 
   private
