@@ -36,7 +36,7 @@ class Request < ApplicationRecord
   def self.renew
     requests = Request.confirmed
     requests.each do |request|
-      if ((Time.now - request.updated_at) / 3600 / 24) > 91
+      if ((Time.now - request.updated_at) / 3600 / 24) > 1
         UserMailer.confirmation(request).deliver_now
         request.status == "expired"
       end
