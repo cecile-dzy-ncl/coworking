@@ -36,7 +36,8 @@ class Request < ApplicationRecord
   def self.renew
     requests = Request.confirmed
     requests.each do |request|
-      if ((Time.now - request.updated_at) / 3600 / 24) > 1
+      # calcul en minutes pour envoi mail relance apres 10 minutes
+      if ((Time.now - request.updated_at) / 3600) > 10
         UserMailer.confirmation(request).deliver_now
         request.status = "expired"
       end
@@ -56,3 +57,6 @@ class Request < ApplicationRecord
     end
   end
 end
+
+# calcul en jour
+# if ((Time.now - request.updated_at) / 3600 / 24) > 91
