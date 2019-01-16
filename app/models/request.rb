@@ -39,7 +39,7 @@ class Request < ApplicationRecord
       # calcul en minutes pour envoi mail relance apres 10 minutes
       if ((Time.now - request.updated_at) / 3600) > 10
         UserMailer.confirmation(request).deliver_now
-        request.status = "expired"
+        request.update(status: "expired")
       end
     end
   end
