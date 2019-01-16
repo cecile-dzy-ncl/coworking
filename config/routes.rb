@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  require "sidekiq/web"
+  require "sidekiq/cron/web"
+    authenticate :user, lambda { |u| u.admin } do
+      mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :requests do
     member do
       get :confirm_email
