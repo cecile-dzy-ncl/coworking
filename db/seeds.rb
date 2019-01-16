@@ -20,7 +20,6 @@ sheldon = Request.new(
   phone: "0123456789",
   bio: "Well, come on, you know who I am! I am in Paris for a few months and I want to work in your coworking, have heard it is the best. I am sure I'll find THE spot, MY spot! Oh, and I am brigging friends!",
   status: "accepted",
-  confirm_token: "",
   email_confirmed: true)
 sheldon.save
 
@@ -30,7 +29,6 @@ amy = Request.new(
   phone: "0234567891",
   bio: "Hi there, I am Amy, Sheldon's wife! I will follow him wherever he goes, so here I am! So happy to be able to work in Paris, I hope I can have a spot in your coworking space soon so I can work on my neurobiology projects.",
   status: "accepted",
-  confirm_token: "",
   email_confirmed: true)
 amy.save
 
@@ -40,7 +38,6 @@ leonard = Request.new(
   phone: "0345678912",
   bio: "Hello, Leonard here! I am the best friend! With Penny, my wife, we decided to tag along when Sheldon asked us to go to France for a few months.",
   status: "confirmed",
-  confirm_token: "",
   email_confirmed: true)
 leonard.save
 
@@ -50,7 +47,6 @@ penny = Request.new(
   phone: "0456789123",
   bio: "Hi there, I am Penny, the neighbourgh! I am so happy to come to Paris, I am going to go shopping so many times! Oh, and so days, I will be coming to the cowork, obviously to do my job... need to pay the shopping bills!",
   status: "confirmed",
-  confirm_token: "",
   email_confirmed: true)
 penny.save
 
