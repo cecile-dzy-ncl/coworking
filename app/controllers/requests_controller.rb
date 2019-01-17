@@ -27,9 +27,9 @@ class RequestsController < ApplicationController
   end
 
   def confirm_email
-    request = Request.find_by_confirm_token(params[:id])
-    if request
-      request.email_confirmed!
+    @request = Request.find_by_confirm_token(params[:id])
+    if @request
+      @request.email_confirmed!
       flash[:notice] = "Votre email est bien confirmé, vous êtes sur liste d'attente."
       redirect_to root_path
     else
@@ -39,9 +39,9 @@ class RequestsController < ApplicationController
   end
 
   def confirm_request
-    request = Request.find_by_confirm_token(params[:id])
-    if request
-      request.request_confirmed!
+    @request = Request.find_by_confirm_token(params[:id])
+    if @request
+      @request.request_confirmed!
       flash[:notice] = "Votre demande est bien renouvellée."
       redirect_to root_path
     else
