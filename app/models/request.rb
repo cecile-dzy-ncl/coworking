@@ -38,7 +38,6 @@ class Request < ApplicationRecord
   end
 
   def request_confirmed!
-    self.confirm_token = nil
     self.update(status: "confirmed")
   end
 
