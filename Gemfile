@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem "sidekiq-cron", '~> 0.6.3'
+gem 'rufus-scheduler', '~> 3.4.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
