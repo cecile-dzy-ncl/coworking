@@ -9,7 +9,7 @@ class CheckExpirationJob < ApplicationJob
       if ((Time.now - request.updated_at) / 3600) > 10
         UserMailer.confirmation(request).deliver_now
         request.update(status: "expired")
-        puts "ok i send an email"
+        puts "ok email sent"
       else
         puts "no request older than 10 minutes"
       end
