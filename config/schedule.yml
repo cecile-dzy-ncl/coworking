@@ -1,9 +1,9 @@
 check_expiration:
-  cron: "0 * * * *"
+  cron: "* * * * *"
   class: "CheckExpirationJob"
   queue: default
 
 fake:
-  cron: "0 * * * *"
+  cron: "* * * * *"
   class: "FakeJob"
   queue: default
