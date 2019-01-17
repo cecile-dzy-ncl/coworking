@@ -29,7 +29,6 @@ class Request < ApplicationRecord
 
   def email_confirmed!
     self.email_confirmed = true
-    self.confirm_token = nil
     self.update(status: "confirmed")
   end
 
