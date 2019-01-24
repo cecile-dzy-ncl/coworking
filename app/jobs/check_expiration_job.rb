@@ -6,7 +6,7 @@ class CheckExpirationJob < ApplicationJob
     requests = Request.confirmed
     requests.each do |request|
       # calcul en minutes pour envoi mail relance apres 10 minutes
-      if ((Time.now - request.updated_at) / 3600) > 1
+      if ((Time.now - request.updated_at) / 3600 / 6) > 10
         UserMailer.confirmation(request).deliver_now
         request.update(status: "expired")
         puts "ok email sent"
